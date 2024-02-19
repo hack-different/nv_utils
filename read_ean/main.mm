@@ -82,7 +82,6 @@ int main(int argc, const char * argv[]) {
     
     printf("Service Name: %s\n", deviceName);
     
-    uint64_t spec = 0;
     uint64_t isFormatted;
     uint32_t count = 1;
 
@@ -109,7 +108,7 @@ int main(int argc, const char * argv[]) {
         callResult = IOConnectCallScalarMethod(eanConnect, kAppleEANReadEAN, readParams, 3, &readResult, &count);
         
         char* fileName = (char*)malloc(128);
-        sprintf(fileName, "ean.0x%04x.bin", eanKey);
+        snprintf(fileName, 127, "ean.0x%04llx.bin", eanKey);
         
         FILE* saveFile = fopen(fileName, "w");
         fwrite(eanDataOut, dataSize, 1, saveFile);
