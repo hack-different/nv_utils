@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C92E8A6C2B8045A500C8999D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C92E8A6B2B8045A500C8999D /* main.m */; };
+		C92E8A6C2B8045A500C8999D /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = C92E8A6B2B8045A500C8999D /* main.mm */; };
+		C92E8A742B804F3700C8999D /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92E8A732B804F3700C8999D /* IOKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,12 @@
 
 /* Begin PBXFileReference section */
 		C92E8A682B8045A500C8999D /* read_ean */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = read_ean; sourceTree = BUILT_PRODUCTS_DIR; };
-		C92E8A6B2B8045A500C8999D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C92E8A6B2B8045A500C8999D /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		C92E8A732B804F3700C8999D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		C92E8A762B8058D400C8999D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C92E8A772B80593A00C8999D /* read_ean.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = read_ean.entitlements; sourceTree = "<group>"; };
+		C92E8A782B80594100C8999D /* read_ean.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = read_ean.entitlements; sourceTree = "<group>"; };
+		C92E8A792B80595300C8999D /* read_ean.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = read_ean.entitlements; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C92E8A742B804F3700C8999D /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,8 +48,10 @@
 		C92E8A5F2B8045A500C8999D = {
 			isa = PBXGroup;
 			children = (
+				C92E8A762B8058D400C8999D /* Info.plist */,
 				C92E8A6A2B8045A500C8999D /* read_ean */,
 				C92E8A692B8045A500C8999D /* Products */,
+				C92E8A722B804F3700C8999D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +66,20 @@
 		C92E8A6A2B8045A500C8999D /* read_ean */ = {
 			isa = PBXGroup;
 			children = (
-				C92E8A6B2B8045A500C8999D /* main.m */,
+				C92E8A792B80595300C8999D /* read_ean.entitlements */,
+				C92E8A6B2B8045A500C8999D /* main.mm */,
 			);
 			path = read_ean;
+			sourceTree = "<group>";
+		};
+		C92E8A722B804F3700C8999D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C92E8A772B80593A00C8999D /* read_ean.entitlements */,
+				C92E8A782B80594100C8999D /* read_ean.entitlements */,
+				C92E8A732B804F3700C8999D /* IOKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C92E8A6C2B8045A500C8999D /* main.m in Sources */,
+				C92E8A6C2B8045A500C8999D /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +264,12 @@
 		C92E8A702B8045A500C8999D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = read_ean.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DWVXMLB45Y;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = me.rickmark.ean;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -252,7 +277,12 @@
 		C92E8A712B8045A500C8999D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = read_ean.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DWVXMLB45Y;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = me.rickmark.ean;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
